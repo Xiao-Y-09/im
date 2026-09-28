@@ -1,0 +1,8 @@
+/uploads/
+/server/uploads/
+/loadtest/bin/
+/loadtest/logs/
+/loadtest/fixture.json
+/web/node_modules/
+/web/dist/
+*.exe

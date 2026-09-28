@@ -1,0 +1,16 @@
+instance_id: A
+http_addr: :8080
+# 用 127.0.0.1 而不是 localhost：Windows 上 localhost 先解析到 ::1，
+# 经 Docker Desktop 的 IPv6 端口转发每次往返约 40ms（实测 MySQL 43ms/查询 vs 1ms）
+mysql_dsn: root:root@tcp(127.0.0.1:3306)/im?parseTime=true&loc=Local
+redis_addr: 127.0.0.1:6380
+jwt_secret: dev-secret
+upload_dir: ./uploads
+transport:
+  mode: local            # local | kafka
+  local:
+    buffer_size: 4096
+    publish_timeout_ms: 50
+  kafka:
+    brokers: [127.0.0.1:9092]
+    topic: im-messages
